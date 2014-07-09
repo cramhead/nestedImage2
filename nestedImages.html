@@ -1,0 +1,56 @@
+<head>
+  <title>nestedImages</title>
+</head>
+
+<body>
+
+{{> loginButtons}}
+  {{> fileUpload}} 
+{{> profileDisplay}}
+  {{> fileDisplay}}
+
+</body>
+
+
+
+
+<template name="fileUpload">
+  <div class='fileUpload'>
+    <input class="fileUploader" type="file" multiple="true" />
+  </div>
+</template>
+
+<template name="profileDisplay">
+<div class="users">
+  <ul>
+  {{#each users}}
+    <li>
+      <div>{{username}}<img src="{{profile.profileImage.url}}" alt=""></div>
+    </li>
+    {{else}}
+        <li>
+      <div>No users</div>
+    </li>
+    {{/each}}
+  </ul>
+</div>
+</template>
+
+<template name="fileDisplay">
+  <div class="images">
+    <ul>
+      {{#each images}}
+	      <li>
+	        <div>
+	        {{username}}
+	          <img src="{{url}}" alt="profile image">
+	        </div>
+	      </li>
+      {{else}}
+	      <li>
+	        <div>No images</div>
+	      </li>
+      {{/each}}
+    </ul>
+  </div>
+</template>
